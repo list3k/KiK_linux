@@ -259,3 +259,16 @@ bool MyGame::handleClick(std::vector<std::vector<int>> &gameBoard, int side, int
 
 	return false;
 }
+
+/*
+bool MyGame::isDraw(std::vector<std::vector<int> > &gameBoard, int side){
+
+	//check if any element =0, then it's not a draw!
+
+	if( std::find(gameBoard.begin(), gameBoard.end(), 0) != gameBoard.end())
+	{
+		int side = 0;
+	}
+	return true;
+}
+*/

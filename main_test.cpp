@@ -2,7 +2,7 @@
 #include "MyGame.h"
 
 
-TEST(handleClick, clicked_0_0){
+TEST(handleClick, clicked_top_left_0_0){
 
 	MyGame g;
 	std::vector<std::vector<int>> gameBoard{
@@ -19,7 +19,7 @@ TEST(handleClick, clicked_0_0){
 
 }
 
-TEST(handleClick, clicked_1_1){
+TEST(handleClick, clicked_middle_1_1){
 
         MyGame g;
         std::vector<std::vector<int>> gameBoard{
@@ -36,7 +36,26 @@ TEST(handleClick, clicked_1_1){
 
 }
 
-TEST(isWinner, its_a_WIN){
+TEST(handleClick, not_clicked){
+
+	MyGame g;
+	std::vector<std::vector<int>> gameBoard{
+                   { { 0,0,0 },
+                   {   0,0,0 },
+                   {   0,0,0 } }
+                                          };
+
+	//[0][0], also x=0 and y=0 is a click! So x and y must be negative.
+	//Game board has values from 0 to 600.
+	int x=-100;
+	int y=-200;
+	int side =1;
+
+	EXPECT_GT(0, (x + y));
+
+}
+
+TEST(isWinner, a_WIN){
 
 	MyGame g;
         std::vector<std::vector<int>> gameBoard{
@@ -50,7 +69,7 @@ TEST(isWinner, its_a_WIN){
 
 }
 
-TEST(isWinner, its_not_a_WIN){
+TEST(isWinner, not_a_WIN){
 
         MyGame g;
         std::vector<std::vector<int>> gameBoard{
@@ -64,6 +83,21 @@ TEST(isWinner, its_not_a_WIN){
 
 }
 
+TEST(isWinner, a_TIE){
+
+        MyGame g;
+        std::vector<std::vector<int>> gameBoard{
+                   { { 1,1,2 },
+                   {   2,1,1 },
+                   {   1,2,2 } }
+                                          };
+
+        int side_a =2;
+        EXPECT_FALSE(g.isWinner(gameBoard, side_a));
+	int side_b =1;
+	EXPECT_FALSE(g.isWinner(gameBoard, side_b));
+
+}
 
 
 
