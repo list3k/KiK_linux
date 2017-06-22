@@ -13,13 +13,11 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Define sources and executable
-set(EXECUTABLE_NAME "TheGame")
+set(EXECUTABLE_NAME "Kolko_I_Krzyzyk")
 add_executable(${EXECUTABLE_NAME} main.cpp MyGame.cpp)
 
 # Detect and add SFML
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
-#Find any version 2.X of SFML
-#See the FindSFML.cmake file for additional details and instructions
 #set(SFML_STATIC_LIBRARIES TRUE)
 find_package(SFML REQUIRED graphics window system)
 if(SFML_FOUND)
@@ -29,6 +27,14 @@ endif()
 
 #FONT
 file(COPY ${PROJECT_SOURCE_DIR}/Xeron.ttf DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+#GTEST UNIT TESTING
+enable_testing()
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+add_executable(runTest main_test.cpp MyGame.cpp)
+target_link_libraries(runTest gtest gtest_main pthread ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+add_test(runTest runTest)
 
 # Install target
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)

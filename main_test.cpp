@@ -47,8 +47,8 @@ TEST(handleClick, not_clicked){
 
 	//[0][0], also x=0 and y=0 is a click! So x and y must be negative.
 	//Game board has values from 0 to 600.
-	int x=-100;
-	int y=-200;
+	int x=-1;
+	int y=-1;
 	int side =1;
 
 	EXPECT_GT(0, (x + y));
