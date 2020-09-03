@@ -1,5 +1,4 @@
-# Kolko i Krzyzyk by Radek & Michal! #
-
+# Kolko i Krzyzyk Michal! #
 
 SFML linked,updated program LINUX Version!
 
@@ -10,7 +9,7 @@ $> sudo apt-get install libsfml-dev
 AFTER installation - simply descent into source directory and use:
 
 
-# Make with TESTS!
+# Make with googleTESTS!
 
 make - to create KolkoIKrzyzyk and runTest executable
 
