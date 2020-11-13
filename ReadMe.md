@@ -1,7 +1,7 @@
-# Kolko i Krzyzyk by Radek & Michal! #
+# Kolko i Krzyzyk by Michal! #
 
 
-SFML linked,updated program LINUX Version!
+SFML linked, updated program LINUX Version!
 
 BEFORE running "make" or cmake, please install SFML libraries, preferred automatic install with standard lib path:
 
